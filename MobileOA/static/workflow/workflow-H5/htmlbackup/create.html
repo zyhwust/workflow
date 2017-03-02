@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <!-- Bootstrap core CSS -->
+        <!--<link href="../../css/bootstrap.min.css" rel="stylesheet">-->
+        <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/weui.min.css" rel="stylesheet">
+        <link href="../css/main.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <title>申请流程 - 武汉市第五医院</title>
+        <style>
+            .form-group {
+                margin-bottom: 0; 
+            }
+            label {
+                display: inline-block;
+                max-width: 100%;
+                margin-bottom: 0;
+                font-weight: 100; 
+            }
+        </style>
+    </head>
+    <body>
+        <div class="weui-tab workflow-tab">
+            <div class="weui-navbar">
+                <!-- <img class="goBack" src="./img/ease_mm_title_back.png" alt=""> -->
+                <div class="weui-navbar__item weui-bar__item_on" id="workflowType">
+                    <!-- 内容 -->
+                </div>
+                <!-- <div class="weui-navbar__item">
+                    流程
+                </div> -->
+            </div>
+            <div class="weui-tab__panel">
+                <div class="weui-cells weui-cells_form workflow-form" id="workflowForm">
+                    <!-- <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" type="text" placeholder="请输入标题"/>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd">
+                            <label class="weui-label">请假天数</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label for="" class="weui-label">开始时间</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" type="datetime-local">
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label for="" class="weui-label">结束时间</label></div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" type="datetime-local">
+                        </div>
+                    </div>
+                    <div class="weui-cell weui-cell_select weui-cell_select-after">
+                        <div class="weui-cell__hd"><label for="" class="weui-label">请假类型</label></div>
+                        <div class="weui-cell__bd">
+                            <select class="weui-select" name="select1">
+                                <option selected="">请选择</option>
+                                <option value="1">病假</option>
+                                <option value="2">事假</option>
+                                <option value="3">婚假</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label for="" class="weui-label">结束时间</label></div>
+                        <div class="weui-cell__bd">
+                            <textarea class="weui-textarea" placeholder="请输入" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label for="" class="weui-label">相关附件</label></div>
+                        <div class="weui-cell__bd">
+                            <span class="weui-file">
+                                <input type="file">
+                                <img src="/static/img/m/workflow/icon_attachment.png">
+                            </span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="weui-tabbar workflow-actions">
+                <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default" id="btnCancel">放弃</a>
+                <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary" id="btnSubmit">提交</a>
+            </div>
+        </div>
+
+        <script src="../js/jquery-1.11.3.min.js"></script>
+        <!-- 配置文件 -->
+        <script type="text/javascript" src="../js/config.js"></script>
+        <!-- 工具文件 -->
+        <script type="text/javascript" src="../js/tools.js"></script>
+        <script type="text/javascript" src="../js/zepto.min.js"></script>
+        <script type="text/javascript" src="../js/core.js"></script>
+        <script type="text/javascript" src="../js/workflow.js"></script>
+        <script type="text/javascript" src="../js/datapicker/WdatePicker.js"></script>
+        <script>
+            new App.Workflow.WorkflowCreate({
+                id: window.location.search.split('=').pop()
+            })
+        </script>
+    </body>
+</html>

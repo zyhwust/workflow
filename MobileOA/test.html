@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>  
+<head>
+    <meta charset="utf-8">
+    <title>医家MOA-武汉市第五医院</title>
+</head>
+<body>
+    <button id='btn'>333333</button>
+    <script src="./static/hx_sdk/js/jquery-1.11.1.js"></script>
+    <script>
+        var BASE = {};
+        // 接口路径
+        // 测试环境
+        // ASE.url = 'http://120.132.85.24:8080/MOA',
+        // BASE.JFurl = 'http://120.132.85.24:8080/jflow-web/OA',
+        // 真实环境
+        // BASE.url = (document.domain == 'localhost' ? 'http://221.235.190.13:8080' : document.location.origin) + '/',
+        BASE.JFurl = (document.domain == 'localhost' ? 'http://120.132.85.24:8080' : document.location.origin) + '/jflow-web/OA',
+
+        BASE.url = 'http://localhost:81/workflow_def',
+        // BASE.url = 'http://localhost:81/MOA',
+        // BASE.JFurl = 'http://localhost:81/jflow-web/OA';
+        BASE.pageSize = 10,
+        // ajax请求报错
+        BASE.error = '网络错误';
+
+function Ajax(obj) {
+
+    if(Object.prototype.toString.call(obj).toLowerCase() != '[object object]') {
+        console.log('参数错误1');
+        return;
+    }
+    var url = obj.url,
+        args = obj.args,
+        sucFn = obj.success,
+        errFn = obj.error,
+        asy = obj.asy
+        ;
+    // if(typeof url != 'string' || Object.prototype.toString.call(args).toLowerCase() != '[object object]' || typeof sucFn != 'function') {
+    //     console.log('参数错误2');
+    //     return;
+    // }
+    var data = obj.args;
+    // data.sid = localStorage.sId || '-1';
+    // data.loginId = localStorage.userId || '-1';
+    // data.deviceType = 'web';
+    // data.deviceId = '';
+    var fun = function(rst) {
+        if(rst.code == 200 || rst.code == 1) {
+            sucFn(rst);
+        }
+        if(rst.code == 404) {
+            window.location.href = BASE.url + '/OAManager/dist/index.html#!/login';
+            return;
+        }
+        if(rst.code != 200 && rst.code != 1) {
+            errFn === undefined ? App.fail(rst.msg, 'default') : (typeof errFn === 'function' ? errFn(rst) : App.fail('error'));
+        }
+    }
+
+    // $.ajax({
+    //     url: BASE.url + url,
+    //     type: 'post',
+    //     async: asy === undefined ? true : (asy === false ? false : true),
+    //     contentType: 'application/json',
+    //     data: JSON.stringify(data)
+    // }).then(fun, function() {tools.toast('网络错误', 'error');});
+
+        // 原生XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+    var async = asy === undefined ? true : (asy === false ? false : true);
+    xhr.open('post', BASE.url + url, async);
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState == 4) {
+            if( (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304 ) {
+                var res = JSON.parse(xhr.responseText);
+                console.log(rest);
+                fun(res);
+            }else {
+                // tools.busy(false);
+                App.fail('网络不给力', 'error');
+            }       
+        }
+    }   
+    // xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // xhr.setRequestHeader('Content-Type', 'utf-8');
+    xhr.send(data);
+    console.log(JSON.stringify(data));
+}
+
+    </script>
+
+    <script>
+        var data = {
+            "name": "0124测是啊aaa111111111",
+            "intro": "",
+            "node_map": {
+                "0": {
+                    "name": "开始节点",
+                    "approve": {
+                        "type": 0
+                    },
+                    "next_node": {
+                        "type": 1,
+                        "seq_id_list": [
+                            "1"
+                        ]
+                    },
+                    "seq_id": "0"
+                },
+                "1": {
+                    "name": "申请",
+                    "approve": {
+                        "type": "1",
+                        "approver_category": 1,
+                        "label": "同意",
+                        "role_list": [],
+                        "account_id_list": []
+                    },
+                    "rollback": [],
+                    "last_node": {
+                        "type": 1,
+                        "seq_id_list": [
+                            "0"
+                        ]
+                    },
+                    "next_node": {
+                        "type": 1,
+                        "seq_id_list": [
+                            "2"
+                        ]
+                    },
+                    "seq_id": "1"
+                },
+                "2": {
+                    "name": "审批",
+                    "approve": {
+                        "type": "1",
+                        "approver_category": 3,
+                        "label": "同意",
+                        "role_list": [],
+                        "account_id_list": [
+                            "2903"
+                        ]
+                    },
+                    "rollback": [],
+                    "last_node": {
+                        "type": 1,
+                        "seq_id_list": [
+                            "1"
+                        ]
+                    },
+                    "next_node": {
+                        "type": 1,
+                        "seq_id_list": [
+                            "#"
+                        ]
+                    },
+                    "seq_id": "2"
+                },
+                "#": {
+                    "name": "结束节点",
+                    "last_node": {
+                        "type": 1,
+                        "seq_id_list": [
+                            "2"
+                        ]
+                    },
+                    "seq_id": "#"
+                }
+            },
+            "form_def_id": "1",
+            "creator_id": "575e64f96aea11412d46ae0f",
+            "domain_id": "56fb8aaa17f52a1de0b9677c",
+            "status": 1
+        };
+
+        // var a = new FormData();
+        
+        // a.append("workflow_def", JSON.stringify(data));
+        // console.log(a.get('workflow_def'));
+        // console.log(a);
+        var a = 'workflow_def'+ '=' + JSON.stringify(data);
+
+        var obj = {
+            url: '/create/',
+            args: a,
+            success: function(rst) {
+                alert('success');
+                console.log(rst);
+            }            
+        };
+        document.querySelector('#btn').onclick = function() {
+            Ajax(obj);
+        };
+
+        // $.post('http://localhost:81/workflow_def/create/', {
+        //     workflow_def: JSON.stringify(data)
+        // }, function(r){
+        //     console.log(r)
+        // },'json')
+    </script>
+</body>
+</html>

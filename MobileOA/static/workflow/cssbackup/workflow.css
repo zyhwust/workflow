@@ -1,0 +1,280 @@
+.form-container .placeholder{height: 0; font-size: 0; overflow: hidden; border-top: 1px solid #ff5400; margin: 10px 0;}
+
+/*form*/
+.form-widget{position: relative; margin: 10px 0;}
+.form-widget .mask{position: absolute; top: 0; right: 0; bottom: 0; left: 0; cursor: move; z-index: 9; border: 1px dashed transparent;}
+.form-widget.hover>.mask{border-color: #ff5400;}
+.form-widget.active>.mask{border: 1px solid #ff5400;}
+.form-widget .remove{position: absolute; top: 0; right: 0; z-index: 10; display: none; height: 16px; width: 16px; text-align: center; line-height: 16px; background: #ff5400; color: #FFF;}
+.form-widget .remove i{font-style: normal;}
+.form-widget.hover>.remove{display: block;}
+.form-widget .widget-view-border{border-top: 1px solid #CCC; border-bottom: 1px solid #CCC; padding: 10px; background: #FFF; position: relative; overflow: hidden; white-space: nowrap; font-size: 0; letter-spacing: -4px;}
+.form-widget .widget-view-border label{display: inline-block; margin-bottom: 0; margin-right: 5px; font-weight: normal; vertical-align: top; width: 5em; min-height: 20px; white-space: normal; word-break: break-word; font-size: 14px; letter-spacing: 0;}
+.form-widget .widget-view-border .input{display: inline-block; vertical-align: top; color: #999; font-size: 14px; letter-spacing: 0;}
+.form-widget .widget-view-border .input-select{position: absolute; top: 10px; right: 10px; color: #999; font-size: 14px; letter-spacing: 0; }
+.form-widget .widget-tip{padding: 5px 10px; color: #666; min-height: 30px;}
+.form-widget .widget-label{padding: 5px 10px; color: #666; text-align: center; min-height: 30px;}
+.form-widget .widget-group{background: #FAF6E7; min-height: 100px; border-bottom: 1px solid #CCC;}
+.form-widget .widget-group .empty-tip{line-height: 100px; color: #CCC; text-align: center;}
+.form-widget .widget-group .form-widget{margin: 0 1px; z-index: 10;}
+.form-widget .widget-group .widget-view-border{border-bottom-color: transparent;}
+.form-widget .widget-add{text-align: center; padding: 5px 0;}
+.form-widget hr{font-size: 0; height: 0; overflow: hidden; border-top: 1px solid #CCC;}
+
+/*textarea*/
+.widget-textarea .widget-view .input .value{height: 60px; display: inline-block;}
+
+.widget-daterange .widget-view .widget-view-border:first-child{margin-bottom: -1px;}
+
+.widget-setting{}
+.setting-field{margin-bottom: 10px; width: 280px;}
+.setting-field .field-title{margin-bottom: 3px;}
+.setting-field .field-title span{}
+.setting-field .field-title em{font-style: normal; font-size: 12px; color: #999;}
+.setting-field.error .field-title em{color: red;}
+.setting-field .field-ipt{position: relative;}
+.setting-field .field-ipt .ipt-text{padding: 4px 5px; border: 1px solid #CCC; width: 100%; outline: none; border-radius: 3px;}
+.setting-field.error .field-ipt .ipt-text{border-color: red;}
+.setting-field .field-ipt label{font-weight: normal; cursor: pointer; margin-right: 20px; font-size: 12px;}
+.setting-field .field-ipt .ipt-radio,
+.setting-field .field-ipt .ipt-checkbox{margin: 0; vertical-align: middle; margin-right: 3px;}
+.setting-field .field-ipt .list-item{margin-bottom: 5px; position: relative;}
+.setting-field .field-ipt .list-item .disabled{color: #F0EFF4; opacity: 0.3;}
+.setting-field .field-ipt .tree-select{border: 1px solid #CCC; border-radius: 3px;}
+.setting-field .field-ipt .tree-hd{border-bottom: 1px solid #CCC; height: 30px;font-size: 0; letter-spacing: -4px;
+    background:-webkit-linear-gradient(top, #F8F8F8 0, #E8E8E8 100%);
+    background:-moz-linear-gradient(top, #F8F8F8 0, #E8E8E8 100%);
+    background:linear-gradient(top, #F8F8F8 0, #E8E8E8 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#F8F8F8', endColorstr='#E8E8E8',GradientType=0);
+}
+.setting-field .tree-select .tree-hd a{margin-left: 5px; display: inline-block; height: 28px; line-height: 28px;}
+.setting-field .tree-select .icon{width: 18px; height: 18px; background-size: cover;}
+.setting-field .field-ipt .tree-bd{height: 200px; overflow: auto;}
+.setting-field .field-ipt textarea{height: 100px; resize: vertical;}
+
+.select-list .list-item span{display: block; position: absolute; top: 1px; right: 1px; border-left: 1px solid #CCC; height: 28px; line-height: 28px; font-size: 0; letter-spacing: -4px;
+	background:-webkit-linear-gradient(top, #F8F8F8 0, #E8E8E8 100%);
+    background:-moz-linear-gradient(top, #F8F8F8 0, #E8E8E8 100%);
+    background:linear-gradient(top, #F8F8F8 0, #E8E8E8 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#F8F8F8', endColorstr='#E8E8E8',GradientType=0);
+}
+.select-list .list-item span a{display: inline-block; width: 28px; text-align: center;}
+.select-list .list-item span a .icon{width: 18px; height: 18px; background-size: cover;}
+.show-calendar{position: absolute; width: 28px; height: 28px; display: block; top: 1px; right: 1px; border-left: 1px solid #CCC; text-align: center; line-height: 28px; color: #666;
+	background:-webkit-linear-gradient(#F8F8F8 0%, #E8E8E8 100%);
+	background:-o-linear-gradient(#F8F8F8 0%, #E8E8E8 100%);
+	background:linear-gradient(#F8F8F8 0%, #E8E8E8 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#F8F8F8', endColorstr='#E8E8E8',GradientType=0);
+}
+.show-calendar:hover{color: #666;}
+
+/*form design*/
+.form-design{overflow: hidden;/* width: 1000px; margin: 0 auto;*/}
+
+.control-list{width: 300px; float: left; height: 100%; margin-left: 30px; padding-top: 20px; overflow: auto;}
+.control-list h5{margin: 0; padding: 0; border-bottom: 1px solid #D1D1D1; height: 30px; line-height: 30px; margin-bottom: 10px; margin-right: 20px;}
+.control-list ul{list-style: none; margin: 0; padding: 0;}
+.control-list li{float: left; width: 130px; padding: 0 15px; margin-right: 20px; margin-bottom: 5px; height: 35px; line-height: 35px; border: 1px dashed #D3D3D3; background-color: #FFF; background-repeat: no-repeat; background-position: 95px center; cursor: move;}
+.control-text{background-image: url(../img/workflow/icon-text.png);}
+.control-textarea{background-image: url(../img/workflow/icon-textarea.png);}
+.control-mobile{background-image: url(../img/workflow/icon-mobile.png);}
+.control-email{background-image: url(../img/workflow/icon-email.png);}
+.control-phone{background-image: url(../img/workflow/icon-phone.png);}
+.control-number{background-image: url(../img/workflow/icon-number.png);}
+.control-money{background-image: url(../img/workflow/icon-money.png);}
+.control-radio{background-image: url(../img/workflow/icon-radio.png);}
+.control-checkbox{background-image: url(../img/workflow/icon-checkbox.png);}
+.control-date{background-image: url(../img/workflow/icon-date.png);}
+.control-daterange{background-image: url(../img/workflow/icon-daterange.png);}
+.control-image{background-image: url(../img/workflow/icon-image.png);}
+.control-file{background-image: url(../img/workflow/icon-file.png);}
+.control-person{background-image: url(../img/workflow/icon-person.png);}
+.control-department{background-image: url(../img/workflow/icon-department.png);}
+.control-tree{background-image: url(../img/workflow/icon-tree.png);}
+.control-description{background-image: url(../img/workflow/icon-description.png);}
+.control-table{background-image: url(../img/workflow/icon-table.png);}
+.control-position{background-image: url(../img/workflow/icon-position.png);}
+.drag-el{width: 130px; padding: 0 15px; height: 35px; line-height: 35px; border: 1px dashed #D3D3D3; background-color: #FFF; background-repeat: no-repeat; background-position: 95px center; position: absolute; z-index: 999; opacity: 0.6; cursor: move;}
+
+.form-container-wrap{width: 394px; height: 100%; background: url(../img/workflow/phone.png) no-repeat center 20px; padding-top: 20px; float: left; }
+.form-container{margin: 90px 36px 0 38px; overflow: auto; background: #F0EFF4; padding-bottom: 5px;} /*高度计算*/
+
+.control-settings{margin-left: 730px; height: 100%; padding-top: 20px; padding-right: 30px; overflow: auto;}
+.control-settings .setting-tab{height: 30px; line-height: 30px; border-bottom: 1px solid #CCC;list-style: none; margin: 0; padding: 0; margin-bottom: 20px; overflow: hidden;}
+.control-settings .setting-tab li{float: left; margin-right: 20px; cursor: pointer;}
+.control-settings .setting-tab .active{color: #1a9bf3;}
+
+/*flow design*/
+.flow-control-list{width: 200px;}
+.flow-control-list li{width: 160px; background-position: 130px center;}
+.flow-control-list li.control-disabled{background-color: #EFEFEF; color: #CCC;}
+.control-normal{background-image: url(../img/workflow/icon-normal.png);}
+.control-subflow{background-image: url(../img/workflow/icon-subflow.png);}
+.control-branch{background-image: url(../img/workflow/icon-branch.png);}
+
+.flow-node-area{width: 394px; height: 100%; background: url(../img/workflow/phone.png) no-repeat center 20px; padding-top: 20px; float: left; overflow: hidden; margin-left: 15px; position: relative;}
+.action-handle{position: absolute; display: block; width: 36px; height: 36px; z-index: 999; cursor: pointer; background: #FF5400;}
+.switch-handle{left: 3px; background: #FF5400 url(../img/workflow/icon-switch.png) no-repeat center center;}
+.remove-handle{background:#FF5400 url(../img/workflow/icon-remove.png) no-repeat center center;}
+.flow-container{margin: 90px 36px 0 38px; overflow: auto; background: #F0EFF4; padding: 10px 0; width: 320px; position: absolute;} /*高度计算*/
+.back-hd{margin-bottom: 10px; padding: 0 10px 5px; border-bottom: 1px solid #ccc;}
+
+.flow-control-settings{margin-left: 650px;}
+.icon-entrance{width: 16px; height: 16px; background: url(../img/workflow/icon-entrance.png) no-repeat;}
+
+/*flow*/
+.flow-node{position: relative;}
+.flow-node .mask{position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 9; border: 1px dashed transparent;}
+.flow-node.hover>.mask{border-color: #ff5400;}
+.flow-node.active>.mask{border: 1px solid #ff5400;}
+.flow-node .switch,
+.flow-node .remove,
+.flow-node .add,
+.flow-node .entrance{display: none; width: 16px; height: 16px; position: absolute; z-index: 10;}
+/*.flow-node .switch{left: 2px; top: 12px;}
+.flow-node .remove,
+.flow-node .add{right: 2px; top: 12px;}*/
+.flow-node .entrance{right: 8px; top: 8px;}
+/*.flow-node .switch i,
+.flow-node .remove i,
+.flow-node .add i,
+.flow-node .entrance i{font-style: normal;}*/
+/*.flow-node.hover .add,*/
+.flow-node.hover .entrance{display: block;}
+.flow-node .node-view-border{border: 1px solid #CCC; height: 36px; line-height: 36px; background: #FFF; position: relative;}
+.flow-node .node-view-border .node-text{text-align: center;}
+.flow-node-group{position: relative; border: 1px solid transparent;}
+.flow-node-group .remove-group{position: absolute; top: 0; right: 0; z-index: 10; display: none; height: 16px; width: 16px; text-align: center; line-height: 16px; background: #ff5400; color: #FFF;}
+.flow-node-group .remove-group i{font-style: normal;}
+.flow-node-group.hover{border: 1px dashed #ff5400;}
+.flow-node-group.hover .remove-group{display: block;}
+.flow-node-group .add-node{position: relative;}
+.flow-node-group .add-node .add{display: block; text-align: center; height: 24px; line-height: 24px; border: 1px solid #CCC; background: #FFF; color: #333; text-decoration: none; background: #F9F9F9;}
+.flow-node-group .add-node .add:hover{border-color: #999;}
+.flow-node-group .add-node ul{position: absolute; top: 24px; left: 0; width: 100%; border: 1px solid #CCC; background: #FFF; z-index: 99; list-style: none; margin: 0; padding: 0;}
+.flow-node-group .add-node ul a{display: block; height: 30px; line-height: 30px; color: #333; text-decoration: none; text-align: center;}
+.flow-node-group .add-node ul a:hover{background: #EFEFEF;}
+
+.node-begin, .node-end{margin: 0 20px;}
+.node-begin .node-view-border,
+.node-end .node-view-border{border-radius: 10px; background: #E5E5E5; border-color: #999999;}
+
+/*dialog*/
+.switch-arrow ul{list-style: none; margin: 0; padding: 0;}
+.switch-arrow li label{font-weight: normal; cursor: pointer;}
+.switch-arrow li .ipt-text{width: 60px;  text-align: center;}
+
+/*箭头*/
+/*.node-arrow{margin: 5px 10px;}*/
+.node-arrow .node-view-border{border: 0; border-radius: 0; background: transparent;}
+.arrow-normal{display: inline-block; width: 2px; height: 30px; background: #999; position: relative;}
+.arrow-normal:after{content: ' '; display: block; position: absolute; width:0; height: 0; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 6px solid #999; border-bottom: 0; left: -2px; bottom: -6px;}
+.arrow-branch{display: inline-block; width: 2px; height: 30px; background: #999; position: relative;}
+.arrow-branch:after{content: ' '; display: block; position: absolute; width: 0; height: 0;border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 6px solid #999; border-bottom: 0; left: -2px; bottom: -6px;}
+.arrow-branch span{width: 104px; height: 17px; border: 2px solid #999; border-bottom: 0; position: absolute; top: 17px; left: -50px;}
+.arrow-branch span:before,
+.arrow-branch span:after{content: ' '; display: block; position: absolute; width: 0; height: 0;border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 6px solid #999; border-bottom: 0;}
+.arrow-branch span:before{left: -4px; bottom: -6px;}
+.arrow-branch span:after{right: -4px; bottom: -6px;}
+.arrow-merge{display: inline-block; width: 2px; height: 30px; background: #999; position: relative;}
+.arrow-merge:after{content: ' '; display: block; position: absolute; width: 0; height: 0;border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 6px solid #999; border-bottom: 0; left: -2px; bottom: -6px;}
+.arrow-merge:before{content: ' '; display: block; width: 104px; height: 20px; border: 2px solid #999; border-top: 0; position: absolute; top: 0; left: -50px;}
+
+/*node setting*/
+.node-setting-field{margin-bottom: 10px;}
+.node-setting-field .field-title{float: left; width: 5em; height: 30px; line-height: 30px; }
+.node-setting-field .field-ipt{margin-left: 5.5em; position: relative;}
+.node-setting-field .field-ipt .ipt-text{padding: 4px 5px; border: 1px solid #CCC; width: 300px; outline: none;}
+.node-setting-field .field-ipt .user-selector{width: 300px; margin-top: 5px;}
+.node-setting-field.error .field-ipt .ipt-text{border-color: red;}
+.node-setting-field .field-ipt .ipt-select{position: absolute; width: 300px; top: 30px; left: 0; border: 1px solid #CCC; margin-top: -1px; z-index: 99; background: #FFF;}
+.ipt-select ul{list-style: none; margin: 0; padding: 0;}
+.ipt-select .agree-actions a{display: block; text-decoration: none; color: #333; height: 24px; line-height: 24px; padding: 0 5px;}
+.ipt-select .agree-actions a:hover{background: #EFEFEF;}
+.ipt-select .refuse-actions li{height: 24px; line-height: 24px; margin: 8px 0; padding: 0 5px;}
+.ipt-select .refuse-actions li label{font-weight: normal;}
+.ipt-select .refuse-actions li em{font-style: normal; vertical-align: middle;}
+.ipt-select .refuse-actions li .refuse-back-to{display: inline-block; vertical-align: middle;}
+.refuse-back-to .refuse-back-to-text{border: 1px solid #CCC; background: #EFEFEF; display: inline-block; padding: 0 5px; width: 180px;}
+.refuse-back-to .refuse-back-to-btn{border: 1px solid #CCC; margin-left: -1px; cursor: pointer; display: inline-block; padding: 0 5px;}
+.node-setting-field .field-ipt .input-group{width: 300px;}
+.node-setting-field .field-ipt .ipt-radio,
+.node-setting-field .field-ipt .ipt-checkbox{margin: 0; vertical-align: middle; margin-right: 3px;}
+.node-setting-field .field-ipt p{margin: 0; line-height: 30px;}
+.node-info-form .node-setting-field .field-ipt{line-height: 30px;}
+.node-info-form .node-setting-field label{font-weight: normal; cursor: pointer;}
+.node-info-form .node-setting-field .field-title{width: 10em;}
+
+
+/*manage*/
+.workflow-main{overflow: auto}
+.workflow-steps .manage-actions{margin-top: -35px;}
+.workflow-main .step-path{list-style: none; margin: 0; padding: 0; overflow: hidden; background: #F6F6F6; border-bottom: 1px solid #CCC;}
+.step-path li{float: left;  height: 38px; line-height: 38px; padding: 0 10px;}
+.step-path .active{color: #1A9BF3; border-bottom: 3px solid #1A9BF3;}
+.step-path .sep{padding: 0;}
+
+.workflow-basic-form{padding: 20px;}
+
+
+/*index*/
+.workflow-content{height: 100%;border: 1px solid #CCCCCC; background: #FFF; min-height: 300px;}
+
+.workflow-def-list{padding: 50px 20px; list-style: none; margin: 0;}
+.workflow-def-list li{float: left; margin: 10px;}
+.workflow-def-list li a{display: block; height: 110px; width: 170px; padding: 10px 0 15px 0; text-align: center; border: 1px solid #CCC; border-radius: 5px; background: #FAFAFA; color: #666;}
+.workflow-def-list li a span{display: inline-block; height: 75px; padding-top: 65px; line-height: 33px; width: 100%; background-position: top center; background-repeat: no-repeat;}
+.workflow-def-list .workflow-qingjia span{background-image: url(../img/qingjia.png);}
+.workflow-def-list .workflow-chuchai span{background-image: url(../img/chuchai.png);}
+
+
+/*new*/
+.shadow-box .box-hd{height: 40px; border-bottom: 1px solid #CCC; padding: 8px 10px; text-align: center;
+    background:-webkit-linear-gradient(top, #F8F8F8 0, #E8E8E8 100%);
+    background:-moz-linear-gradient(top, #F8F8F8 0, #E8E8E8 100%);
+    background:linear-gradient(top, #F8F8F8 0, #E8E8E8 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#F8F8F8', endColorstr='#E8E8E8',GradientType=0);
+}
+
+.shadow-box .box-hd h3{font-size: 16px; margin: 0 5px; height: 24px; line-height: 24px;}
+.shadow-box .box-hd .actions{margin-top: -3px;}
+.shadow-box .actions .btn{margin-left: 10px;}
+
+.workflow-form{padding: 15px;}
+.workflow-ins-list{padding: 15px;}
+.workflow-ins-list table{border: 1px solid #CCC;}
+.workflow-ins-list table .status2{color: #49820b;}
+
+.workflow-form .file-upload .input-group{overflow: hidden;}
+.workflow-form .file-upload .input-group .ipt-file{position: absolute; top: 0; right: 0; font-size: 100px; opacity: 0; z-index: 10; cursor: pointer;}
+.workflow-form .file-upload .file-list p{height: 30px; line-height: 30px; position: relative; overflow: hidden; margin-bottom: 0;}
+.workflow-form .file-upload .file-list p .close{float: none; vertical-align: text-bottom; margin-left: 10px;}
+.workflow-form .file-upload .file-list .file-name{position: relative; z-index: 2;}
+.workflow-form .file-upload .file-list .percent{display: block; position: absolute; left: 0; top: 0; z-index: 1; height: 100%; background: #efefef}
+.workflow-detail .workflow-status{height: 95%; border-left: 1px solid #CCC; width: 400px; float: right; overflow: auto; background: #FAFAFA;}
+.workflow-detail .workflow-info{margin-right: 400px; height: 100%; overflow: auto;}
+.workflow-info dl{padding: 20px 0;}
+.workflow-info dl dt{display: inline-block; width: 40%; text-align: right; clear: both; color: #999; font-weight: normal; padding: 5px 10px; vertical-align: text-top;}
+.workflow-info dl dd{display: inline-block; width: 58%; padding: 5px 10px; vertical-align: text-top;}
+
+.workflow-status ul{list-style: none; padding: 40px 0 0 0; margin:0; margin-left: 70px; border-left: 1px solid #CCC; }
+.workflow-status ul li{position: relative; margin-bottom: 40px; padding-top: 10px;}
+.workflow-status ul li .name{position: absolute; height: 70px; width: 70px; left: -35px; top: 0; padding: 5px; background: #FAFAFA}
+.workflow-status .name span{display: block; height: 60px; width: 60px; border: 1px solid #CCC; border-radius: 50%; background: #FFF; padding: 4px;}
+.workflow-status .name span i{display: block; width: 50px; height: 50px; border-radius: 50%; background: #CCC; color: #FFF; text-align: center; line-height: 50px; font-style: normal; font-size: 12px;}
+.workflow-status .current .name span i{background: #8FC31F;}
+.workflow-status ul li .status{margin-left: 60px; margin-right: 20px; position: relative; border: 1px solid #CCC; background: #FFF; padding: 5px 10px; min-height: 50px; border-radius: 5px;}
+.workflow-status .status .arrow{position: absolute; display: block; height: 9px; width: 9px; overflow: 0; background: url(../img/arrow.png) no-repeat; left: -9px; top: 20px;}
+.workflow-status .status p{margin: 3px 0; color: #999;}
+.workflow-status .status .time{text-align: right;}
+.workflow-status .current .status p{color: #666;}
+
+.tmp{}
+.pull-down{
+    position: fixed;
+    bottom: 0px;
+    background-color: #d1d1d1;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}

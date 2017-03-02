@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <!-- Bootstrap core CSS -->
+        <!--<link href="../../css/bootstrap.min.css" rel="stylesheet">-->
+        <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/weui.min.css" rel="stylesheet">
+        <link href="../css/main.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <title>审批 - 武汉市第五医院</title>
+        <style>
+            /*
+            .weui-navbar {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                position: absolute;
+                z-index: 500;
+                top: 50px;
+                width: 100%;
+                background-color: #fafafa;
+            }
+            
+           
+            .weui-navbar+.weui-tab__panel {
+                padding-top: 100px;
+                padding-bottom: 60px;
+            }*/
+            .linkBack{
+                position: fixed;
+                left: 15px;
+                top: 5px;
+                font-size: 35px;
+                color: #737171;
+            }
+            .navbar{
+                position: fixed;
+                width: 100%;
+                top: 0;
+                border-bottom: 1px solid #d0cfcf;
+                background-color: #F2F2F2;
+            }
+             .navbarContent{
+                text-align: center;
+                line-height: 50px;
+                font-size: 17px;
+                float: left;
+                text-indent: 10px;
+                margin-left: 50px;
+                border-left: 1px solid #ddd;
+            }
+            .userInfo {
+                text-align: left;
+                padding-bottom: 10px;
+                
+            }
+            .userImg {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                position: absolute;
+                left: 5px;
+            }
+            .userImg img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+            .userName {
+                position: relative;
+                padding: 15px 70px 15px;
+                line-height: 30px;
+            }
+            .userName1{
+                color: #000;
+                font-size: 13px;
+            }
+            .colorBlack{
+                color: #000;
+                font-weight: 500;
+            }
+            #workflowInsInfo{
+                border-top: 1px solid #f3e9e9;
+                text-align: left;
+                padding-top: 5px;
+            }
+            #workflowInsStatus .userImg{
+                position: absolute;
+                left: -50px;
+                top: 7px;
+                width: 45px;
+                height: 45px;
+            }
+            /*审批意见*/
+            .workflow-agree {
+                width: 100%;
+                height: 100%;
+                z-index: 1000;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                display: none;
+            }
+            .workflow-agree-panel{
+                width: 100%;
+                height: 100%;
+                z-index: 1000;
+                background-color: #F7F7F7;
+                padding-top: 50px;
+            }
+            .workflow-agree-panel textarea{
+                width: 100%;
+                height: 40%;
+                border: 0;
+                /*padding: 55px 10px 10px;*/
+                font-size: 18px;
+                line-height: 25px;
+            }
+            .workflow-agree-panel textarea:focus {
+                outline: none;
+            }
+            .submit{
+                float: right;
+                text-align: center;
+                line-height: 50px;
+                font-size: 17px;
+                margin-right: 10px;
+                width: 50px;
+            }
+            .weui-form-preview__label {
+                float: left;
+                margin-right: 1em;
+                min-width: 5em;
+                color: #999;
+                text-align: justify;
+                text-align-last: justify;
+            }
+            body{
+                font-family: Helvetica,Arial,sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="weui-tab workflow-tab">
+            <div class="weui-navbar">
+                <div class="weui-navbar__item weui-bar__item_on">
+                    内容
+                </div>
+                <div class="weui-navbar__item">
+                    流程
+                </div>
+            </div>
+            <div class="weui-tab__panel" style="padding-bottom: 50px;">
+                <div class="weui-form-preview workflow-form-preview panel-item">
+                    <div class="weui-form-preview__bd">
+                        <div class="userInfo">
+                                <div class="user">
+                                    <div class="userName">
+                                        <div class="userImg">
+                                            <img src="http://120.132.85.24:8080/MOA/upload/avatar/2911.png" alt="">
+                                        </div>
+                                        <p class="colorBlack"><strong id="userName"></strong></p>
+                                        <p id="workflowStatus"></p>
+                                    </div>
+                                </div>
+                                <div class="workflowInsGeneral">
+                                    <p>
+                                        <label class="weui-form-preview__label">审批编号</label>
+                                        <span class="colorBlack" id="workflowId"></span>
+                                    </p>
+                                    <p>
+                                        <label class="weui-form-preview__label">所在部门</label>
+                                        <span class="colorBlack" id="dep"></span>
+                                    </p>
+                                </div>
+                        </div>
+                        <div id="workflowInsInfo">
+                            <span style="font-size: 16px;">申请详情</span>
+                        </div>
+                        <!-- <p>
+                            <label class="weui-form-preview__label">标题</label>
+                            <span class="weui-form-preview__value">朱刚的请假申请</span>
+                        </p>
+                        <p>
+                            <label class="weui-form-preview__label">请假天数</label>
+                            <span class="weui-form-preview__value">1天</span>
+                        </p>
+                        <p>
+                            <label class="weui-form-preview__label">开始时间</label>
+                            <span class="weui-form-preview__value">2016男09月20日</span>
+                        </p>
+                        <p>
+                            <label class="weui-form-preview__label">结束时间</label>
+                            <span class="weui-form-preview__value">2016男09月21日</span>
+                        </p>
+                        <p>
+                            <label class="weui-form-preview__label">请假类型</label>
+                            <span class="weui-form-preview__value">事假</span>
+                        </p>
+                        <p>
+                            <label class="weui-form-preview__label">请假事由</label>
+                            <span class="weui-form-preview__value">家里有事</span>
+                        </p>
+                        <p>
+                            <label class="weui-form-preview__label">相关附件</label>
+                            <span class="weui-form-preview__value"><a href="javascript:;">阿斯发达萨地方.doc</a></span>
+                        </p> -->
+                    </div>
+                </div>
+                <ol class="flow-chart panel-item" style="display: none;" id="workflowInsStatus">
+                     <!--<li>
+                        <div class="name">
+                            <span><i></i></span>
+                        </div>
+                        <div class="status">
+                            <span class="arrow"></span>
+                            <div class="userImg">
+                                <img src="http://120.132.85.24:8080/MOA/upload/avatar/2911.png" alt="">
+                            </div>
+                            <p class="node-name">开始节点</p>
+                            <p class="comment">描述、说明、审批意见等</p>
+                            <p class="time">2016-07-22</p>
+                        </div>
+                    </li>
+                    <li class="current">
+                        <div class="name">
+                            <span><i></i></span>
+                        </div>
+                        <div class="status">
+                            <span class="arrow"></span>
+                            <p class="node-name">部门负责人审批</p>
+                            <p class="comment">
+                                <textarea></textarea>
+                            </p>
+                            <p class="time"></p>
+                        </div>
+                    </li>
+                    <li class="fail">
+                        <div class="name">
+                            <span><i></i></span>
+                        </div>
+                        <div class="status">
+                            <span class="arrow"></span>
+                            <p class="node-name">部门经理审批</p>
+                            <p class="comment"></p>
+                            <p class="time"></p>
+                        </div>
+                    </li> -->
+                </ol>
+                
+            </div>
+            <div class="weui-tabbar workflow-actions" id="workflowInsActions">
+                <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default" id="btnCancel">撤销</a>
+                <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default" id="btnRefuse">驳回</a>
+                <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary" id="btnAgree">同意</a>
+            </div>
+        </div>
+        <div class="workflow-agree">
+            <div class="navbar">
+                <i class="fa fa-angle-left linkBack goBack" aria-hidden="true"></i>
+                <div class="navbarContent">
+                    审批意见
+                </div>
+                <div cLass="submit" id="submit">确定</div>
+            </div>
+            <div class="workflow-agree-panel">
+                <textarea placeholder="请输入审批意见（非必填）" name="" id="commentTextArea" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+
+        <script src="../js/jquery-1.11.3.min.js"></script>
+        <!-- 配置文件 -->
+        <script type="text/javascript" src="../js/config.js"></script>
+        <!-- 工具文件 -->
+        <script type="text/javascript" src="../js/tools.js"></script>
+        <script type="text/javascript" src="../js/zepto.min.js"></script>
+        <script type="text/javascript" src="../js/core.js"></script>
+        <script type="text/javascript" src="../js/workflow.js"></script>
+        <script>
+            $('.weui-navbar__item').each(function(i, item){
+                $(item).on('click', function(){
+                    $('.weui-navbar__item').removeClass('weui-bar__item_on');
+                    $(this).addClass('weui-bar__item_on');
+
+                    $('.panel-item').hide();
+                    $('.panel-item').eq(i).show();
+                })
+            })
+
+            new App.Workflow.WorkflowInsDetail({
+                id: window.location.search.split('=').pop()
+            })
+        </script>
+    </body>
+</html>

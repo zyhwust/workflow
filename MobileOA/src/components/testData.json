@@ -1,0 +1,84 @@
+[
+    {
+      "typeId":"dept",
+      "typeName":"部门",
+      "data":[
+        {
+          "id": 61,
+          "name": "医院领导",
+          "children": [
+            {
+              "id": 68,
+              "name": "领导部门1",
+              "children": [
+                {
+                  "id": 70,
+                  "name": "领导部门1.1",
+                  "children": []
+                },
+                {
+                  "id": 71,
+                  "name": "领导部门2.1",
+                  "children": [
+                    {
+                      "id": 72,
+                      "name": "领导部门1.1",
+                      "children": []
+                    },
+                    {
+                      "id": 73,
+                      "name": "领导部门2.1",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 69,
+              "name": "领导部门2",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": 62,
+          "name": "内科部",
+          "children": []
+        }
+      ]
+    },
+    {
+      "typeId":"jobTitle",
+      "typeName":"职位",
+      "data":[
+        {
+          "id": 63,
+          "name": "主任",
+          "children": []
+        },
+        {
+          "id": 64,
+          "name": "科长",
+          "children": []
+        },
+        {
+          "id": 70,
+          "name": "员工",
+          "children": []
+        },
+        {
+          "id": 66,
+          "name": "实习生",
+          "children": []
+        },
+        {
+          "id": 65,
+          "name": "院长",
+          "children": []
+        }
+      ]
+    },
+    {"typeId":"positionalTitle","typeName":"职称","data":""},
+    {"typeId":"partyBranch","typeName":"党支部","data":""}
+  ]

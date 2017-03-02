@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="admin-page">
+    <head>
+        
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<!-- Bootstrap core CSS -->
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="./css/main.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+        <link href="./css/workflow.css" rel="stylesheet">
+        <title>流程管理 - 武汉市第五医院工作流</title>
+    </head>
+
+    <body>
+        
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://120.76.24.79/web">
+                    <img src="./img/logo.png" />
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="http://120.76.24.79/web/manage/department/" class="dropdown-toggle"><span class="icon-user"></span>田伟 <!-- <span class="caret"></span> --></a>
+                        <!-- <ul class="dropdown-menu">
+                            <li><a href="#">设置</a></li>
+                        </ul> -->
+                    </li>
+                    <li></li>
+                    <li><a href="/sso/logout">退出</a></li>
+                </ul>
+                
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
+</header>
+        <div class="main org">
+            <div class="content">
+                <div class="workflow-content">
+                    <ul class="common-tab workflow-tab" id="newsTab">
+                        <li><a href="http://120.76.24.79/web/workflow/">新建审批</a></li>
+                        <li ><a href="http://120.76.24.79/web/workflow/list/?type=1">我发起的</a></li>
+                        <li ><a href="http://120.76.24.79/web/workflow/list/?type=2">待我审批</a></li>
+                        <li class="active"><a href="http://120.76.24.79/web/workflow/list/?type=3">我已审批</a></li>
+                        <!-- <li ><a href="http://120.76.24.79/web/workflow/list/?type=4">办毕</a></li> -->
+                        <!-- <li ><a href="http://120.76.24.79/web/workflow/list/?type=5">放弃</a></li> -->
+                    </ul>
+                    <div class="workflow-main manage-list" id="workflowMain">
+                        <div class="workflow-ins-list">
+                            <table class="table table-hover" id="insList">
+                                <colgroup>
+                                    <col width="20%" />
+                                    <col width="15%" />
+                                    <col width="40%" />
+                                    <col width="15%" />
+                                    <col width="10%" />
+                                </colgroup>
+                                <thead>
+                                    <tr class="active">
+                                        <th><span>创建日期</span></th>
+                                        <th><span>类别</span></th>
+                                        <th><span>标题</span></th>
+                                        <!-- <th><span>当前审批人</span></th> -->
+                                        <th><span>创建人</span></th>
+                                        <th><span>状态</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+<footer>
+	<div class="container-fluid">
+	    <hr>
+	    <p class="copyright">&copy; 武汉市第五医院 2016</p>
+	</div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./js/vendor/jquery-1.11.3.min.js"></script>
+<script src="./js/vendor/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="./js/vendor/ie10-viewport-bug-workaround.js"></script>
+
+<script src="./js/security/sjcl.min.js"></script>
+<script src="./js/security/crypto.js"></script>
+<script src="./js/core.js"></script>
+
+        <script src="./js/workflow.js"></script>
+        <script src="./js/workflow-ins.js"></script>
+        <script>
+            new App.Workflow.WorkflowInsManage({
+                type: 3
+            })
+        </script>
+        
+    </body>
+</html>

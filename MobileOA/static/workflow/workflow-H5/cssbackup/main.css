@@ -1,0 +1,142 @@
+html, body{background: #EFEFF4; height: 100%;}
+a{color: #008fe1}
+
+/*workflow-main-tab*/
+.workflow-main-tab{background: #FFF; margin-bottom: 20px;}
+.workflow-main-tab .weui-flex__item{padding: 25px 0;}
+.workflow-main-tab .weui-flex__item:active{background: #ececec;}
+.workflow-main-tab__icon{height: 35px; text-align: center;}
+.workflow-main-tab__icon img{height: 100%; width: auto;}
+.workflow-main-tab__label{text-align: center; margin-top: 5px; font-size: 14px; color: #000;}
+
+/*workflow-grids*/
+.workflow-grids{background: #FFF;}
+
+/*workflow-list*/
+.workflow-list .weui-media-box_appmsg .weui-media-box__hd{
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+}
+.weui-media-box_appmsg .weui-media-box__bd{
+    position: relative;
+}
+.weui-media-box__meta{
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    color: #909090;
+    font-size: 13px;
+    line-height: 1.2;
+}
+.workflow-list .weui-media-box__desc{
+    -webkit-line-clamp: 1;
+}
+.workflow-list-empty{text-align: center; padding: 50px 0;}
+.workflow-list-empty .workflow-list-empty__icon{height: 82px;}
+.workflow-list-empty .workflow-list-empty__icon img{height: 100%; width: auto;}
+.workflow-list-empty .workflow-list-empty__label{font-size: 15px; color: #C6C6C6;}
+
+/*workflow-status*/
+.workflow_progress{color: #F75555;}
+.workflow_done{color: #42C28A;}
+.workflow_fail{color: #909090;}
+
+/*workflow-tab*/
+.workflow-tab .weui-navbar{
+    background: #FFF; height: 50px; position: fixed;
+}
+.workflow-tab .weui-navbar__item{
+    font-size: 17px;
+}
+.workflow-tab .weui-navbar__item.weui-bar__item_on{
+    background: #FFF;
+    border-bottom: 3px solid #3c7abc;
+    color: #3c7abc;
+}
+
+/*preview*/
+.workflow-form-preview .weui-form-preview__value{
+    text-align: left;
+    color: #323232;
+}
+.workflow-form-preview p{clear: both;}
+
+/*flow-chart*/
+/*.flow-chart li{
+    padding: 30px 30px 0 30px;
+    display: flex;
+}
+.flow-chart .operator{
+    width: 46px;
+    font-size: 13px;
+}
+.flow-chart .detail{
+    border: 1px solid #D9D9D9;
+    flex: 1;
+    background: #FFF;
+}*/
+
+.flow-chart{list-style: none; padding: 30px 0 0 0; margin:0; margin-left: 55px; border-left: 1px solid #CCC; }
+.flow-chart li{position: relative; margin-bottom: 30px;}
+.flow-chart li .name{position: absolute; height: 20px; width: 20px; left: -15px; top: 8px; background: #EFEFF4}
+.flow-chart .name span{display: block; height: 24px; width: 24px; border: 1px solid #efeff4; border-radius: 50%; background: #efeff4; margin: 2px;}
+.flow-chart .name span i{display: block; width: 20px; height: 20px; border-radius: 50%; background: #9D9D9D; color: #FFF; text-align: center; line-height: 42px; font-style: normal; font-size: 12px; margin: 2px;}
+.iconCheck:before {
+    position: relative;
+    top: -11px;
+    font-size: 15px;
+}
+
+.flow-chart .current .name span i{background: #42C28A;}
+.flow-chart .fail .name span i{background: #962F2F;}
+
+.flow-chart li .status{line-height: 24px; text-indent: 60px; margin-left: 40px; margin-right: 30px; position: relative; border: 1px solid #D9D9D9; background: #FFF; padding: 5px; min-height: 38px; border-radius: 5px;}
+.flow-chart .status .arrow{position: absolute; display: block; height: 0; width: 0;  left: -16px; top: 16px; border: 5px solid transparent; border-right: 10px solid #D9D9D9;}
+.flow-chart .status .arrow:after{position: absolute; display: block; content: ' '; height: 0; width: 0; left: -3px; top: -5px; border: 5px solid transparent; border-right: 10px solid #FFF;}
+.flow-chart .status p{color: #999; font-size: 13px;}
+.flow-chart .status .node-name{ font-size: 14px; color: #646464;}
+.flow-chart .status .time{text-align: right;}
+.flow-chart .status .comment textarea{height: 40px; width: 100%; resize: none; border: 1px solid #D9D9D9; box-sizing: border-box; display: block; -webkit-appearance: none; font-size: 15px; line-height: 1.3;}
+.flow-chart .current .status .node-name{color: #323232; margin-bottom: 5px;}
+
+/*actions*/
+.workflow-actions{padding: 10px 0; background: #FFF;}
+.workflow-actions .weui-btn_mini{
+    font-size: 15px;
+    width: 7em;
+    text-align: center;
+}
+.workflow-actions .weui-btn+.weui-btn{margin-top: 0;}
+.weui-btn_default{color: #3c7abc;}
+.weui-btn_primary{background: #3C7ABC; color: #FFF;}
+
+/*workflow-form*/
+.
+.weui-input[type="datetime-local"]{font-size: 13px;}
+/*.workflow-form{background: #EFEFF4;}
+.workflow-form .weui-cell{margin-bottom: 20px; background: #FFF;}*/
+.workflow-form .weui-cell{align-items: baseline;}
+.workflow-form .weui-file{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-align: right;
+    overflow: hidden;
+}
+.workflow-form .weui-file em{float: left; font-style: normal; color: #999;}
+.workflow-form .weui-file img{width: 22px; height: 19px;}
+.workflow-form .weui-file input{opacity: 0; position: absolute; top: 0; right: 0; font-size: 100px;}
+.workflow-form .weui-file-list{font-size: 13px;}
+.workflow-form .file-list-container{padding: 0; }
+.workflow-form .file-list-container .file-list p{height: 30px; line-height: 30px; position: relative; overflow: hidden; }
+.workflow-form .file-list-container .file-list p .weui-icon-clear{margin-left: 10px;}
+.workflow-form .file-list-container .file-list .file-name{position: relative; z-index: 2;}
+.workflow-form .file-list-container .file-list .percent{display: block; position: absolute; left: 0; top: 0; z-index: 1; height: 100%; background: #efefef}
+
+.tmp{}
+
+.header{
+    position: fixed;
+}

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>医家MOA-武汉市第五医院</title>
+    <link rel="icon" href="./static/public/favicon.ico">
+    <link rel="shortcut icon" href="./static/public/favicon.ico">
+    <link rel="bookmark" href="./static/public/favicon.ico">
+    <!--<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="./static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/base.css">
+    <link rel="stylesheet" href="static/css/jquery.atwho.css" />
+    <style>
+      html {
+        background: url('../static/public/chatbg.png') no-repeat #e9dfc1;
+        background-size: cover;
+      }      
+    </style>
+  </head>
+  <body>
+    <div id="page">
+      <app></app>
+    </div>
+    <!--wpush消息提示音-->
+    <audio id="bell" src="./static/tishiyin.mp3" style="display: none"></audio>
+
+    <script src="./static/md5-min.js"></script>
+    <script src="./static/hx_sdk/js/jquery-1.11.1.js"></script>
+    <script src="./static/base.js"></script>
+    <!--<script src="./static/socket.io.js"></script>-->
+    <!--sdk-->
+    <script src="./static/hx_sdk/sdk/strophe.js"></script>
+    <script src="./static/hx_sdk/sdk/easemob.im-1.1.js"></script>
+    <script src="./static/hx_sdk/sdk/easemob.im-1.1.shim.js"></script><!--兼容老版本sdk需引入此文件-->
+    <!--config-->
+    <script src="./static/hx_sdk/js/easemob.im.config.js"></script>
+    <!--demo-->
+    <!--<script src="./static/hx_sdk/js/bootstrap.js"></script>-->
+    <script src="./static/js/jquery.caret.js"></script>
+    <script src="./static/js/jquery.atwho.js"></script>
+    <script src="./static/js/jquery.form.js"></script>
+    <!-- 工作流 -->
+    <!-- <script src="./static/js/workflow.js"></script> -->
+    <script src="./static/js/core.js"></script>
+    <script src="./static/js/security/sjcl.min.js"></script>
+    <script src="./static/js/security/crypto.js"></script>
+    <script src="./static/workflow/jsbackup/vendor/datapicker/WdatePicker.js"></script>
+    <!-- <script src="./static/js/vendor/jquery-1.11.3.min.js"></script> -->
+    <!-- <script src="./static/js/vendor/bootstrap.min.js"></script> -->
+    <!--<link type="text/css" rel="stylesheet" href="./static/hx_sdk/css/bootstrap.css" />-->
+    <!--<link type="text/css" rel="stylesheet" href="./static/hx_sdk/css/webim.css" />-->
+    <!--<script src="./static/hx_sdk/js/webim.js"></script>-->
+<!--<script type="text/javascript" src="http://www.coding123.net/getip.ashx?js=1"></script>
+<script>
+  console.log('ip:' + ip );
+</script>-->
+    <script>     
+      (function() {
+
+        if(window.unDealFlow === null || window.unDealFlow === undefined) {
+          // 在window中存储消息信息
+          window.unDealFlow = {
+            msg_working_notice: 0,
+            msg_working_task: 0,
+            msg_working_flow: 0,
+            msg_working_meeting: 0,
+            msg_working_amount: 0
+          };
+          window.amount = {
+            "inform": 0,
+            "jflow": 0,
+            "task": 0,
+            "meeting": 0
+          };
+        };
+        return getMsg = function(msgType) {
+          console.log(msgType);  
+          var type= msgType;
+          if(msgType === 'jflow_success' || msgType === 'jflow_disposed' || msgType === 'jflow_refused') {
+            type = 'jflow';
+          }
+          // 获取消息推送
+          var obj1710 = {
+            url: '/inform/1710.spring',
+            args: {
+              userId: localStorage.userId,
+              type: type
+            },
+            success: function(rst) {
+              // 暂存消息总数，如果数量减少，证明只是读消息，不播放提示音
+              // var amount = window.unDealFlow.msg_working_amount;
+              // window.unDealFlow.msg_working_notice = rst.data.inform || msg.inform;
+              // window.unDealFlow.msg_working_flow = rst.data.jflow || msg.jflow;
+              // window.unDealFlow.msg_working_meeting = rst.data.meeting || msg.meeting;
+              // window.unDealFlow.msg_working_task = rst.data.task || msg.task;
+              var amount = window.amount[type];
+              
+              (rst.data.type === 'inform') && (window.unDealFlow.msg_working_notice = rst.data.num);
+              (rst.data.type === 'jflow') && (window.unDealFlow.msg_working_flow = rst.data.num);
+              (rst.data.type === 'task') && (window.unDealFlow.msg_working_task = rst.data.num);
+              (rst.data.type === 'meeting') && (window.unDealFlow.msg_working_meeting = rst.data.num);
+             
+              window.amount[type] = rst.data.num;
+              // localStorage.unDealMsg = JSON.stringify(window.unDealFlow); 
+              console.log(window.unDealFlow);
+
+              // 提示音
+              var bell = document.querySelector('#bell');
+
+              if( (parseInt(window.amount[type]) > 0) && (parseInt(window.amount[type]) > parseInt(amount))) {
+                bell.play();
+              }
+            },
+            error: function() {
+              tools.toast('消息推送获取失败', 'error');
+            }						
+          }             
+          Ajax(obj1710);
+        }
+      })();
+
+      // WebSocket
+      var getWebSocket = function() {
+        // WebSocket连接
+        var websocket = null;
+        var ip_address = '';
+           
+        ip_address = ( document.domain === 'localhost' ? '120.132.85.24' : document.domain );
+
+        if (window['WebSocket']) {
+          websocket = new WebSocket('ws://' + ip_address + ':8080/spring-websocket/websocket');
+        }else {
+          websocket = new SockJS(ip_address + ':8080/spring-websocket/websocket/socketjs');
+        }          
+                  
+        if(localStorage.userId === undefined) {
+          return;
+        }       
+        
+        websocket.onopen = function(event) {
+          var userId = localStorage.userId;
+          websocket.send('{"type":"login","userId":'+userId+'}');
+          console.log('open', event);
+        };
+        websocket.onmessage = function(event) {
+          // console.log('message', event.data);
+          console.log('message', event);
+          var data = {};
+          try {
+            data = JSON.parse(event.data);
+          } catch (error) {
+            getMsg('inform');
+            getMsg('jflow');
+            getMsg('task');
+            getMsg('meeting');
+            return;
+          }
+          if(data.type === 'refresh_counts') {
+            // setTimeout(function(){
+              getMsg(data.param);
+            // }, 2000);
+          }else {
+            getMsg('inform');
+            getMsg('jflow');
+            getMsg('task');
+            getMsg('meeting');
+          }
+        }; 
+      };
+
+      // 执行
+      // getMsg();
+
+      // websocket
+      // (function(){
+      //   var socket = new WebSocket("ws://" + BASE.url);
+      //   socket.onopen = function() {
+      //     console.log('websocket is connected');
+      //   }
+      //   socket.onerror = function() {
+      //     console.log('websocket connection error');
+      //   }
+      //   socket.close = function() {
+      //     console.log('websocket connection is closed');
+      //   }
+
+      //   // 处理消息
+      //   socket.onmessage = function(event) {
+      //     var data = JSON.parse(event.data);
+      //   }
+      // }())
+
+      // wpush
+      // // window.unDealFlow = '';
+      // window.unDealFlow = {
+      //   msg_working_notice: 0,
+      //   msg_working_task: 0,
+      //   msg_working_flow: 0,
+      //   msg_working_meeting: 0,
+      //   msg_working_amount: 0
+      // };
+      // // var socket = io.connect('http://localhost:3000/wpush');
+      // var socket = io.connect('http://120.132.85.24:3000/wpush');
+      // var token ="";
+      // socket.on('init', function (data){
+      //     token =data.token;
+      //     socket.emit('init', {
+      //         id:localStorage.userId,
+      //         token : data.token
+      //     });
+      // });
+      // socket.on('init_success', function (data) {
+      //     console.log('init_success');
+      //     console.log(data);
+      // });
+      // // 任务部分(未读)
+      // socket.on('unreadMsg', function (data) {
+      //     // window.unDealFlow = data;
+      //     console.log(window.unDealFlow);
+      //     // 提示音
+      //     var bell = document.querySelector('#bell');
+      //     if(parseInt(window.unDealFlow.msg_working_amount) > 0) {
+      //       bell.play();
+      //     }
+      //     window.unDealFlow.msg_working_notice = data.msg_working_notice;
+      //     window.unDealFlow.msg_working_task = data.msg_working_task;
+      //     window.unDealFlow.msg_working_flow = data.msg_working_flow;
+      //     window.unDealFlow.msg_working_meeting = data.msg_working_meeting;
+      //     window.unDealFlow.msg_working_amount = data.msg_working_amount;
+      // });
+
+    </script>
+  </body>
+
+</html>

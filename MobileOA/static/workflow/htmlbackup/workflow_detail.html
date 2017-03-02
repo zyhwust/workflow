@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="admin-page">
+    <head>
+        
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<!-- Bootstrap core CSS -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="../css/main.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link href="../css/workflow.css" rel="stylesheet">
+<link href="../../font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<title>流程管理 - 武汉市第五医院工作流</title>
+<style type="text/css">
+    /*.pull-right{
+    position: fixed;
+    bottom: 0px;
+    background-color: #d1d1d1;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}*/
+</style>
+</head>
+
+    <body>
+        
+        <div class="main org">
+            <div class="content">
+                <div class="workflow-content shadow-box">
+                    <div class="box-hd">
+                        <a href="./workflow.html" class="pull-left back"><i class="icon icon-back"></i></a>
+                        <h3 class="pull-left" id="workflowInsName"></h3>
+                        <!-- <div class="pull-right actions" id="workflowInsActions" style="display: none;">
+                            <button class="btn btn-primary btn-sm" id="btnAgree">同意</button>
+                            <button class="btn btn-default btn-sm" id="btnRefuse">驳回</button>
+                        </div> -->
+                    </div>
+                    <div class="box-bd workflow-main workflow-detail" id="workflowMain">
+                        <div class="workflow-status" style="position: relative;">
+                            <div id="workflowInsStatus"></div>
+                            <div class="pull-down actions" id="workflowInsActions" style="display: none;">
+                                <button class="btn btn-primary btn-sm" id="btnAgree">同意</button>
+                                <button class="btn btn-default btn-sm" id="btnRefuse">驳回</button>
+                            </div>
+                        </div>
+                        <div class="workflow-info" id="workflowInsInfo">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+<footer>
+	<div class="container-fluid">
+	    <hr>
+	    <p class="copyright">&copy; 武汉市第五医院 2016</p>
+	</div>
+</footer>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../js/vendor/jquery-1.11.3.min.js"></script>
+<script src="../js/vendor/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../js/vendor/ie10-viewport-bug-workaround.js"></script>
+
+<script src="../js/security/sjcl.min.js"></script>
+<script src="../js/security/crypto.js"></script>
+<script src="../js/core.js"></script>
+
+<script src="../js/config.js"></script>
+<script src="../js/workflow.js"></script>
+<script src="../js/workflow-ins.js"></script>
+<script>
+    new App.Workflow.WorkflowInsDetail({
+        // id: '57e73f086aea1105726a7721'
+        id: window.location.search.split('=').pop() || 1
+    })
+</script>
+
+</body>
+</html>

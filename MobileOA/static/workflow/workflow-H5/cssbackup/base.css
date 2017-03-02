@@ -1,0 +1,402 @@
+.weui-navbar+.weui-tab__panel {
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+a:focus, a:hover {
+    color: #23527c;
+     text-decoration: none; 
+}
+/* tools样式 */
+.loadwrap{
+    position: fixed;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+    z-index: 99;
+}
+
+.toastwrap{
+    display: none;
+    position: fixed;
+    /*bottom: 20%;*/
+    top: 7%;
+    width: 100%;
+    text-align: center;
+    z-index: 99;
+}
+ .toast{
+    display: inline-block;
+    /*min-width: 12rem;*/
+    min-width: 27rem;
+    max-width: 30rem;
+    text-align: center;
+    /*font-size: 1.5rem;*/
+    font-size: 1.4rem;
+    border-radius: 4px;
+    line-height: 2.4rem;
+    z-index: 999;
+    opacity: .9;
+    padding: 0.5rem 1rem;
+ }
+ .toast.default{
+    background: #b1afaf;
+    color: #FFF;
+ }
+ .toast.success{
+    background: #57B382;
+    color: #FFF;
+    font-weight: 600;
+ }
+ .toast.error{
+    background: #EC6666;
+    color: #FFF;    
+    /*font-weight: 600;*/
+    font-weight: 400;
+ }
+
+ /*流程、任务继承样式*/
+ ul{
+    list-style: none;
+  }
+  .detail-content{
+    margin-top: 10px;
+    font-size: 15px;
+  }
+  table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    font-family: Arial, verdana, "Hiragino Sans GB", 宋体, "Microsoft Yaheim";
+    font-size: 12px;
+    margin:auto;    
+  }
+  thead{
+    border-top: 1px solid #DFDDDD;
+    height: 30px;
+    line-height: 30px;  
+    color: #888;  
+    background-color: #eeeef1;
+  }
+  tr{
+      border-bottom: 1px solid #DFDDDD;
+      cursor: pointer;
+    }
+  tbody tr{
+    height: 40px;
+    line-height: 40px;
+    color: #666;
+  }
+  tbody tr:hover{
+    background-color: #f7f8fd;
+  } 
+  td{
+    padding-left: 10px;
+    border-right: 1px solid #DEE1E5;
+    border-collapse: collapse;
+  }
+  td:last-child{ 
+      border-right:0; 
+  } 
+  .detail-title{
+    height: 40px;
+  }
+  .user-img{
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius:50%;
+  }
+  .page-cover{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*opacity: 0.5;*/
+    /*background-color: #DFDDDD;*/
+  }
+  .slideright{
+    width: 500px;
+    display: none;
+    position: absolute;
+    bottom:0;
+    right:0;
+    /*top:70px;*/
+    height: 94%;
+    z-index: 3;
+    box-shadow: rgba(0, 0, 0, 0.247059) 0px 7px 21px;
+    background-color: white;
+    font-size: 15px;
+  }
+  .slider-header{
+    width: 100%;
+    /*设定最小宽度，避免隐藏时元素自动换行*/
+    min-width: 500px;
+    line-height: 50px;
+    padding-left: 10px;
+    border-bottom: 1px solid #DFDDDD;
+    text-align: center;
+  }
+  .slider-close{
+    position: absolute;
+    right: 10px;
+    line-height: 50px;
+    cursor: pointer;
+  }
+  .slider-body{
+    min-width: 500px;
+    overflow:auto;
+    padding-bottom: 100px;
+    height: 90%;
+  }
+  .workflow-detail{
+    padding:10px;
+  }
+  .detail-head img{
+    width: 50px;
+    height: 50px;
+    float: left;
+    border-radius: 50%;
+    /*margin-bottom: 10px;*/
+  }
+  .detail-head span{
+    margin-left: 60px;
+    display: block;
+    line-height: 25px;
+  }
+  .detail-message{
+    margin-top: 10px;
+    border-top: 1px solid #DFDDDD;
+  }
+  .detail-message span{
+    display: block;
+    margin: 10px;
+  }
+  .examine-schedule{
+    border-top: 1px solid #DFDDDD;
+    position: relative;
+
+  }
+  .examine-schedule:before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    bottom: 40px;
+    left: 20px;
+    width: 1px;
+    display: block;
+    background: rgb(224, 224, 224);
+  }
+  .examine-step{
+    min-height: 50px;
+    margin: 30px 10px auto 38px;
+    position: relative;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    background-color: #e27c3d;
+    cursor: default;
+    border-radius: 5px;
+  }
+  .examine-arrow{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-top: 5px dashed  transparent;
+    border-bottom: 5px dashed  transparent;
+    border-right: 5px solid #e27c3d;
+    font-size: 0px;
+    line-height: 0px;
+    left: -4px;
+    bottom: 30px;
+  }
+  .step-status{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -28px;
+    bottom: 25px;
+    border-radius: 50%;
+    border: 1px solid #DFDDDD;
+    background-color: #f5f9ff;
+    color: #f6b032;
+    text-align: center;
+  }
+  .step-name{
+    color: white;
+  }
+  .step-time{
+    position: absolute;
+    top: 33px;
+    right: 5px;
+    font-size: 11px;
+    color: #DFDDDD;
+  }
+  .step-exstatus{
+    display: block;
+    font-size: 12px;
+    margin-top: 7px;
+    color: white;
+  }
+  .step-content{
+    font-size: 12px;
+    color: white;
+  }
+  /*.operate-btn{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+  }*/
+  .need-examine{
+    /*height: 50px;*/
+    width: 100%;
+    min-width: 500px;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #DFDDDD;
+  }
+  .need-examine button{
+    width: 50%;
+    font-size: 15px;
+    background-color: #f1eded;
+  }
+  .agree-btn{
+    float: left;
+    height: 56px;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    border-right: 1px solid #DFDDDD;
+  }
+  .refuse-btn{
+    float: left;
+    height: 56px;
+    border: none;
+  }
+  .start-examine{
+    /*height: 50px;*/
+    width: 100%;
+    min-width: 500px;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #DFDDDD;
+  }
+  .cancel-btn{
+    width: 100%;
+    /*height: 100%;*/
+    height: 56px;
+    background-color: #ac293b;
+    border: none;
+    color: white;
+    font-size: 16px;
+  }
+  .comment-form{
+    width: 500px;
+    height: 310px;
+    margin: 80px auto;
+    position: absolute;
+    top: 0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    border:1px solid #DFDDDD;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    text-align: center;
+    padding:10px;
+    z-index: 10;
+  }
+  .comment-form span{
+    float: right;
+    color: #858e99;
+    cursor: pointer;
+  }
+  /*.comment-form span:after{
+    content: "";
+    clear: both;
+    width: 0;
+    height: 0;
+    display: block;
+    visibility: hidden;
+  }*/
+  .comment-text{
+    width: 100%;
+    height: 200px;
+    margin: 30px auto;
+  }
+  .comment-text textarea{
+    width: 100%;
+    height: 100%;
+    resize: none;
+    padding: 10px;
+    font-size: 15px;
+    border:none;
+  }
+  .send-btn{
+    margin: auto;
+    border: none;
+    background-color: #FF8C00;
+    color: white;
+    width: 20%;
+    height: 30px;
+    border-radius: 5px;
+  }
+  .send-btn:hover{
+    background-color: #FF9615;
+  }
+  .task-confirm{
+    width: 300px;
+    height:200px;
+    margin: 80px auto;
+    position: absolute;
+    top: 0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    border:1px solid #DFDDDD;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 10;
+  }
+  .confirm-head{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #DFDDDD;
+    /*margin-bottom: 50px;*/
+  }
+  .confirm-head span{
+    float: right;
+    color: #858e99;
+    cursor: pointer;
+    line-height: 40px;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  .confirm-head span:after{
+    content: "";
+    clear: both;
+    width: 0;
+    height: 0;
+    display: block;
+    visibility: hidden;
+  }
+  .confirm-body{
+    margin: 50px auto 40px auto;
+    font-size: 16px;
+  }
+  .confirm-foot{
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #DFDDDD;
+  }
+  .send-btn{
+    margin: auto;
+    border: none;
+    background-color: #FF8C00;
+    color: white;
+    width: 30%;
+    border-radius: 5px;
+  }

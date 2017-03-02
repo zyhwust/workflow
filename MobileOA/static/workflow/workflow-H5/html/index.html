@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <!-- Bootstrap core CSS -->
+        <!--<link href="../../css/bootstrap.min.css" rel="stylesheet">-->
+        <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/weui.min.css" rel="stylesheet">
+        <link href="../css/main.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        
+        <title>首页</title>
+        <style>
+        	.weui-grid__icon {
+        	    width: 45px;
+        	    height: 45px;
+        	    margin: 0 auto;
+        	}
+            .weui-grid__span{
+                width: 100%;
+                color: #000;
+                text-align: center;
+                text-overflow: clip;
+                overflow: hidden;
+                white-space: nowrap;
+            } 
+            .workflow-main-tab .weui-flex__item {
+                position: relative;
+            }
+            span.notice {
+                position: absolute;
+                display: none;
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                text-align: center;
+                right: 20px;
+                top: 10px;
+                color: #fff;
+                border-radius: 50%;
+                /*background-color: #3C7ABC;*/
+                background-color: rgba(234, 53, 53, 0.79);
+            }
+            .show{
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="weui-flex workflow-main-tab">
+            <a class="weui-flex__item" href="./waitmelist.html">
+                <div class="workflow-main-tab__icon">
+                    <img src="../img/icon_daishenpi@3x.png">
+                </div>
+                <p class="workflow-main-tab__label">
+                    待我审批
+                </p>
+                <span class="notice">111</span>
+            </a>
+            <a class="weui-flex__item" href="./myapprovelist.html">
+                <div class="workflow-main-tab__icon">
+                    <img src="../img/icon_faqi@3x.png">
+                </div>
+                <p class="workflow-main-tab__label">
+                    我发起的
+                </p>
+                <!--<span class="notice">1</span>-->
+            </a>
+            <a class="weui-flex__item" href="./undolist.html">
+                <div class="workflow-main-tab__icon">
+                   <img src="../img/icon_caosong@3x.png">
+                </div>
+                <p class="workflow-main-tab__label">
+                    我已审批
+                </p>
+                <!--<span class="notice">1</span>-->
+            </a>
+        </div>
+        <div class="weui-grids workflow-grids" id="workflowDefList">
+            
+            
+            <!-- <a href="/web/m/workflow/create/?workflow_def_id=57fb3d9f6aea114a64c5a0d9" class="weui-grid">
+                <div class="weui-grid__icon">
+                    <img src="img/icon/apply.png">
+                </div>
+                <p class="weui-grid__label">
+                    报销
+                </p>
+            </a>
+            
+            
+            
+            <a href="/web/m/workflow/create/?workflow_def_id=57f9e8c06aea114a64c59cb3" class="weui-grid">
+                <div class="weui-grid__icon">
+                    <img src="img/icon/chufang.png">
+                </div>
+                <p class="weui-grid__label">
+                    处方
+                </p>
+            </a>
+            
+            
+            
+            <a href="/web/m/workflow/create/?workflow_def_id=57f9e5e56aea114a64c59caa" class="weui-grid">
+                <div class="weui-grid__icon">
+                    <img src="img/icon/wupin.png">
+                </div>
+                <p class="weui-grid__label">
+                    物品申请
+                </p>
+            </a>
+            
+            <a href="/web/m/workflow/create/?workflow_def_id=5775c80f6aea11562571a663" class="weui-grid">
+                <div class="weui-grid__icon">
+                    <img src="img/icon/xiupc.png">
+                </div>
+                <p class="weui-grid__label">
+                    电脑保修
+                </p>
+            </a>
+            
+            
+            
+            <a href="/web/m/workflow/create/?workflow_def_id=577489776aea1103757db659" class="weui-grid">
+                <div class="weui-grid__icon">
+                    <img src="img/icon/yiti.png">
+                </div>
+                <p class="weui-grid__label">
+                    议题申请
+                </p>
+            </a>
+            
+            <a href="./create.html" class="weui-grid">
+                <div class="weui-grid__icon">
+                    <img src="img/icon_qingjia@3x.png">
+                </div>
+                <p class="weui-grid__label">
+                    测试流程
+                </p>
+            </a> -->
+        </div>
+        <script src="../js/jquery-1.11.3.min.js"></script>
+        <!-- 配置文件 -->
+        <script type="text/javascript" src="../js/config.js"></script>
+        <!-- 工具文件 -->
+        <script type="text/javascript" src="../js/tools.js"></script>
+        <script type="text/javascript" src="../js/zepto.min.js"></script>
+        <script type="text/javascript" src="../js/core.js"></script>
+        <script type="text/javascript" src="../js/workflow.js"></script>
+        <script>
+            new App.Workflow.WorkflowDefList();
+        </script>
+    </body>
+</html>
